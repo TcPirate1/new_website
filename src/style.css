@@ -24,7 +24,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
+h1, p, #output {
   text-align: center;
 }
 
@@ -32,27 +32,38 @@ h1 {
   display: flex;
   justify-content: center;
 }
-.terminal label {
+.terminal span {
   color: var(--purple);
-  padding-top: 0.5ch;
-  padding-right: 0.5ch;
 }
 
 .userProfile {
-  width: max-content;
   overflow: hidden;
-  border-right: 5px solid var(--purple);
 }
 
-.cursor {
+#cmdinput {
+  field-sizing: content;
+  min-width: 200px;
+  max-width: 400px;
   border: none;
   background-color: transparent;
   caret-color: var(--dark-purple);
   caret-shape: block;
+  padding-left: 5px;
+}
+#cmdinput:focus {
+  outline: none;
 }
 
-@keyframes blinking {
-  50% {
-    border-color: transparent;
-  }
+.output-box {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+#output {
+  padding: unset;
+  border: unset;
+  margin: unset;
+  background-color: transparent;
+  overflow: hidden;
 }
