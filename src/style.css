@@ -1,14 +1,10 @@
 @font-face {
     font-family: "Hack Nerd";
     src: url("/src/assets/Hack/HackNerdFont-Regular.ttf");
-    src: url("/src/assets/Hack/HackNerdFont-Italic.ttf");
-    src: url("/src/assets/Hack/HackNerdFont-Bold.ttf");
-    src: url("/src/assets/Hack/HackNerdFont-BoldItalic.ttf");
   }
 @font-face {
   font-family: "Symbols Nerd";
   src: url("/src/assets/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf");
-  src: url("/src/assets/NerdFontsSymbolsOnly/SymbolsNerdFontMono-Regular.ttf");
 }
 :root {
   --purple: #aa3bff;

@@ -24,12 +24,12 @@ const outputBox = document.getElementById("outputBox");
     switch (cmd.toLowerCase()) {
       case "help":
         print(` Commands:
-  help       Show avaliable commands
-  cd         Show links for nerd fonts and dracula theme
-  ex         Show experience text
-  about      Show about information
-  contact    Show contact form
-  cls        Clear
+  help        Show avaliable commands
+  cd          Show links for nerd fonts and dracula theme
+  ex          Show experience text
+  about       Show about information
+  contact     Show contact form
+  cls         Clear screen
 `);
         break;
 
@@ -38,27 +38,33 @@ const outputBox = document.getElementById("outputBox");
         break;
 
       case "ex":
+        outputBox?.replaceChildren(output!);
         experience();
         break;
 
       case "about":
+        outputBox?.replaceChildren(output!);
         about();
         break;
 
       case "contact":
+        outputBox?.replaceChildren(output!);
         contact();
         break;
 
       case "cls":
-        output!.textContent = '';
+        outputBox?.replaceChildren(output!);
+        output?.replaceChildren();
         break;
 
       default:
+        output!.style.textAlign = 'center';
         print(`Command not found: ${cmd}`);
     }
   }
 
   function about(): void {
+    outputBox?.replaceChildren(output!);
     output!.textContent = `
 Hello my name is Terence and I'm a developer that
 graduated at the end of 2024 (yeah not a great time)
@@ -86,21 +92,22 @@ This website is the beginning of that!
   }
 
   function contact(): void {
+    output!.style.textAlign = 'center';
     output!.textContent = 'terence89chen@gmail.com';
   }
 
   function experience(): void {
-    output!.style.fontSize = '1.5rem'
+    output!.style.fontSize = '1.3rem'
     output!.textContent = `Front-end: \udb80\udf1d | \udb80\udf1c | \udb80\udf1e | \udb81\udee6 |
 
     Back-end: \udb80\udf20 | \ue648 | \udb81\ude72 |
 
     Frameworks: \udb81\udf08 & React Native | \ue83e | 
     
-    Misc: \uf315 | \udb82\udced | \udb81\udd48 | \udb85\ude0a | \udb82\udcc7 |`;
+    Misc: \uf315 | \udb82\udced | \udb81\udd48 | \udb85\ude0a | \udb82\udcc7 | `;
   }
 
-  function show_links(): void {
+  function show_links() {
     const link1 = document.createElement('a');
     multiple_attr(link1, {
       'href': 'https://www.nerdfonts.com/font-downloads',
