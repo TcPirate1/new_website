@@ -7,3 +7,6 @@
 - Can deploy from `gh-pages` branch. Build with Actions or similar.
 - https://github.com/actions/starter-workflows/blob/main/pages/static.yml
 - https://github.com/actions/starter-workflows/blob/main/pages/nextjs.yml
+
+### TODO
+- [ ] Find out why css can't be ported. Screenshot saved on computer.
