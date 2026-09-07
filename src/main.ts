@@ -58,13 +58,12 @@ const outputBox = document.getElementById("outputBox");
         break;
 
       default:
-        output!.style.textAlign = 'center';
         print(`Command not found: ${cmd}`);
+        output!.style.textAlign = 'center';
     }
   }
 
   function about(): void {
-    outputBox?.replaceChildren(output!);
     output!.textContent = `
 Hello my name is Terence and I'm a developer that
 graduated at the end of 2024 (yeah not a great time)
@@ -97,14 +96,13 @@ This website is the beginning of that!
   }
 
   function experience(): void {
-    output!.style.fontSize = '1.3rem'
     output!.textContent = `Front-end: \udb80\udf1d | \udb80\udf1c | \udb80\udf1e | \udb81\udee6 |
 
     Back-end: \udb80\udf20 | \ue648 | \udb81\ude72 |
 
-    Frameworks: \udb81\udf08 & React Native | \ue83e | 
+    Frameworks: \udb81\udf08 | \ue83e | \ue7dc | \ue71d |
     
-    Misc: \uf315 | \udb82\udced | \udb81\udd48 | \udb85\ude0a | \udb82\udcc7 | `;
+    Misc: \uf315 | \udb82\udced | \udb81\udd48 | \udb85\ude0a | \udb82\udcc7 |`;
   }
 
   function show_links() {
@@ -139,6 +137,7 @@ This website is the beginning of that!
   }
 
   function print(text: string): void {
+    outputBox?.replaceChildren(output!);
     output!.replaceChildren();
     output!.style.padding = '15px';
     output!.style.textAlign = 'left';
