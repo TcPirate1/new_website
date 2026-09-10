@@ -51,7 +51,13 @@ const outputBox = document.getElementById("outputBox");
         break;
 
       case "ip":
-        exposeClientInfo(cmd);
+        outputBox?.replaceChildren(output!);
+        output!.textContent = exposeClientInfo(cmd);
+        break
+
+      case "ua":
+        outputBox?.replaceChildren(output!);
+        output!.textContent = exposeClientInfo(cmd);
         break
 
       case "cd":
