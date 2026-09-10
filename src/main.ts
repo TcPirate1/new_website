@@ -18,6 +18,21 @@ const outputBox = document.getElementById("outputBox");
     });
   }
 
+  function exposeClientInfo(type: string): string {
+    if (type == "ip") {
+      async(): Promise<string> => {
+        const response = await fetch('https://api.ipify.org');
+        // Technically this can be done with X-forwarded-for http header but requires processing that these services provide.
+        const address = await response.text();
+        return address
+      };
+    }
+    if (type == "ua") {
+      return navigator.userAgent;
+    }
+    return `Could not retrieve ${type}`
+  }
+
   function executeCommand(input: string): void {
     const [cmd] = input.split(" ");
 
@@ -25,6 +40,8 @@ const outputBox = document.getElementById("outputBox");
       case "help":
         print(` Commands:
   help        Show avaliable commands
+  ip          Ip-address for current user
+  ua          Shows user-agent info (browser, OS etc.)
   cd          Show links for nerd fonts and dracula theme
   ex          Show experience text
   about       Show about information
@@ -32,6 +49,10 @@ const outputBox = document.getElementById("outputBox");
   cls         Clear screen
 `);
         break;
+
+      case "ip":
+        exposeClientInfo(cmd);
+        break
 
       case "cd":
         show_links();

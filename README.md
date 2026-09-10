@@ -10,4 +10,4 @@
 - site url = `https://<user>.github.io/<repo>`
 
 ### TODO
-- [ ] Find out why css can't be ported. Screenshot saved on computer.
+- [ ] Find out how to properly configure GH pages. Can't seem to get this right.
