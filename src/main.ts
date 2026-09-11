@@ -18,14 +18,12 @@ const outputBox = document.getElementById("outputBox");
     });
   }
 
-  function exposeClientInfo(type: string): string {
+  async function exposeClientInfo(type: string): Promise<string> {
     if (type == "ip") {
-      async(): Promise<string> => {
-        const response = await fetch('https://api.ipify.org');
+        const response = await fetch('/api/ip');
         // Technically this can be done with X-forwarded-for http header but requires processing that these services provide.
         const address = await response.text();
         return address
-      };
     }
     if (type == "ua") {
       return navigator.userAgent;
@@ -40,6 +38,7 @@ const outputBox = document.getElementById("outputBox");
       case "help":
         print(` Commands:
   help        Show avaliable commands
+  rss         Goes to the rss feed (Does nothing at the moment)
   ip          Ip-address for current user
   ua          Shows user-agent info (browser, OS etc.)
   cd          Show links for nerd fonts and dracula theme
@@ -50,14 +49,24 @@ const outputBox = document.getElementById("outputBox");
 `);
         break;
 
+      case "rss":
+        outputBox?.replaceChildren(output!);
+        output!.textContent = "This does nothing at the moment."
+        // Function should be here.
+        break
+
       case "ip":
         outputBox?.replaceChildren(output!);
-        output!.textContent = exposeClientInfo(cmd);
+        exposeClientInfo(cmd).then((ip) => {
+          output!.textContent = ip
+        });
         break
 
       case "ua":
         outputBox?.replaceChildren(output!);
-        output!.textContent = exposeClientInfo(cmd);
+        exposeClientInfo(cmd).then((ua) => {
+          output!.textContent = ua
+        });
         break
 
       case "cd":
@@ -125,11 +134,11 @@ This website is the beginning of that!
   function experience(): void {
     output!.textContent = `Front-end: \udb80\udf1d | \udb80\udf1c | \udb80\udf1e | \udb81\udee6 |
 
-    Back-end: \udb80\udf20 | \ue648 | \udb81\ude72 |
+Back-end: \udb80\udf20 | \ue648 | \udb81\ude72 |
 
-    Frameworks: \udb81\udf08 | \ue83e | \ue7dc | \ue71d |
+Frameworks: \udb81\udf08 | \ue83e | \ue7dc | \ue71d |
     
-    Misc: \uf315 | \udb82\udced | \udb81\udd48 | \udb85\ude0a | \udb82\udcc7 |`;
+Misc: \uf315 | \udb82\udced | \udb81\udd48 | \udb85\ude0a | \udb82\udcc7 |`;
   }
 
   function show_links() {
