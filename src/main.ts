@@ -41,8 +41,8 @@ const outputBox = document.getElementById("outputBox");
 
     switch (cmd.toLowerCase()) {
       case "help":
-        print(` Commands:
-  help          Show avaliable commands
+        output!.textContent = `
+  help          Shows this help text
   rss           Goes to the RSS feed (Does nothing at the moment)
   ip            IP-Address for current user
   ua            Shows user-agent info (browser, OS etc.)
@@ -50,9 +50,8 @@ const outputBox = document.getElementById("outputBox");
   ex            Show experience text
   about         Show about information
   ls            Show all forms of contact
-  cls           Clear screen
-`);
-output!.style.textAlign = 'center';
+  cls           Clear screen`;
+        output!.style.textAlign = 'left';
         break;
 
       case "rss":
@@ -102,13 +101,12 @@ output!.style.textAlign = 'center';
 
       case "cls":
         clearOutput();
-        output?.replaceChildren();
         output!.style.textAlign = 'center';
         break;
 
       default:
         clearOutput();
-        print(`Command not found: ${cmd}`);
+        output!.textContent = `Command not found: ${cmd}`;
         output!.style.textAlign = 'center';
     }
   }
@@ -184,12 +182,4 @@ Misc: \uf315 | \udb82\udced | \udb81\udd48 | \udb85\ude0a | \udb82\udcc7 |`;
     outputBox?.appendChild(link2);
     outputBox?.appendChild(link3);
     outputBox!.style.flexDirection = 'column';
-  }
-
-  function print(text: string): void {
-    outputBox?.replaceChildren(output!);
-    output!.replaceChildren();
-    output!.style.padding = '15px';
-    output!.style.textAlign = 'left';
-    output!.textContent += text;
   }
