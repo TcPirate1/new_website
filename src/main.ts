@@ -20,7 +20,7 @@ const outputBox = document.getElementById("outputBox");
 
   async function exposeClientInfo(type: string): Promise<string> {
     if (type == "ip") {
-        const response = await fetch('/api/ip');
+        const response = await fetch('https://api.ipify.org');
         // Technically this can be done with X-forwarded-for http header but requires processing that these services provide.
         const address = await response.text();
         return address
