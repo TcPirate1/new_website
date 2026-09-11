@@ -63,4 +63,5 @@ p, #output {
   margin: unset;
   background-color: transparent;
   overflow: hidden;
+  text-wrap: stable;
 }
