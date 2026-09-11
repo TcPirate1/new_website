@@ -10,4 +10,4 @@
 - site url = `https://<user>.github.io/<repo>`
 
 ### TODO
-- [ ] Find out how to properly configure GH pages. [Found something that might possibly work](https://github.com/sitek94/vite-deploy-demo).
+- [x] [This ended up working for me](https://github.com/sitek94/vite-deploy-demo). Technically could have used the yml above with some sort of combination of the yml from this link too.
