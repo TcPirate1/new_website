@@ -42,15 +42,15 @@ const outputBox = document.getElementById("outputBox");
     switch (cmd.toLowerCase()) {
       case "help":
         print(` Commands:
-help          Show avaliable commands
-rss           Goes to the RSS feed (Does nothing at the moment)
-ip            IP-Address for current user
-ua            Shows user-agent info (browser, OS etc.)
-cd            Show links for nerd fonts and dracula css
-ex            Show experience text
-about         Show about information
-ls            Show all forms of contact
-cls           Clear screen
+  help          Show avaliable commands
+  rss           Goes to the RSS feed (Does nothing at the moment)
+  ip            IP-Address for current user
+  ua            Shows user-agent info (browser, OS etc.)
+  cd            Show links for nerd fonts and dracula css
+  ex            Show experience text
+  about         Show about information
+  ls            Show all forms of contact
+  cls           Clear screen
 `);
 output!.style.textAlign = 'center';
         break;
