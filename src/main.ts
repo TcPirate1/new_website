@@ -31,69 +31,83 @@ const outputBox = document.getElementById("outputBox");
     return `Could not retrieve ${type}`
   }
 
+  function clearOutput() {
+    outputBox?.replaceChildren(output!);
+    output!.replaceChildren();
+  }
+
   function executeCommand(input: string): void {
     const [cmd] = input.split(" ");
 
     switch (cmd.toLowerCase()) {
       case "help":
         print(` Commands:
-  help        Show avaliable commands
-  rss         Goes to the rss feed (Does nothing at the moment)
-  ip          Ip-address for current user
-  ua          Shows user-agent info (browser, OS etc.)
-  cd          Show links for nerd fonts and dracula theme
-  ex          Show experience text
-  about       Show about information
-  contact     Show contact form
-  cls         Clear screen
+help          Show avaliable commands
+rss           Goes to the RSS feed (Does nothing at the moment)
+ip            IP-Address for current user
+ua            Shows user-agent info (browser, OS etc.)
+cd            Show links for nerd fonts and dracula css
+ex            Show experience text
+about         Show about information
+ls            Show all forms of contact
+cls           Clear screen
 `);
+output!.style.textAlign = 'center';
         break;
 
       case "rss":
-        outputBox?.replaceChildren(output!);
+        clearOutput();
         output!.textContent = "This does nothing at the moment."
-        // Function should be here.
+        output!.style.textAlign = 'center';
         break
 
       case "ip":
-        outputBox?.replaceChildren(output!);
+        clearOutput();
         exposeClientInfo(cmd).then((ip) => {
           output!.textContent = ip
         });
+        output!.style.textAlign = 'center';
         break
 
       case "ua":
-        outputBox?.replaceChildren(output!);
+        clearOutput();
         exposeClientInfo(cmd).then((ua) => {
           output!.textContent = ua
         });
+        output!.style.textAlign = 'center';
         break
 
       case "cd":
+        clearOutput();
         show_links();
         break;
 
       case "ex":
-        outputBox?.replaceChildren(output!);
+        clearOutput();
         experience();
+        output!.style.textAlign = 'center';
         break;
 
       case "about":
-        outputBox?.replaceChildren(output!);
+        clearOutput();
         about();
+        output!.style.textAlign = 'center';
         break;
 
-      case "contact":
-        outputBox?.replaceChildren(output!);
+      case "ls":
+        clearOutput();
         contact();
+        output!.style.textAlign = 'center';
         break;
 
       case "cls":
-        outputBox?.replaceChildren(output!);
+        clearOutput();
         output?.replaceChildren();
+        output!.style.textAlign = 'center';
         break;
 
       default:
+        clearOutput();
         print(`Command not found: ${cmd}`);
         output!.style.textAlign = 'center';
     }
@@ -128,7 +142,7 @@ This website is the beginning of that!
 
   function contact(): void {
     output!.style.textAlign = 'center';
-    output!.textContent = 'terence89chen@gmail.com';
+    output!.textContent = 'Email: terence89chen@gmail.com';
   }
 
   function experience(): void {
